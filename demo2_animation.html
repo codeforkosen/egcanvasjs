@@ -1,0 +1,29 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>egcanvas.js demo</title>
+</head>
+<body>
+<script type="module">
+import { createEgCanvas } from "https://js.sabae.cc/egcanvas.js";
+import { sleep } from "https://js.sabae.cc/sleep.js";
+
+const c = createEgCanvas();
+
+c.draw = (g, cw, ch) => { // cw ch は画面の幅高さ、gを使って描画
+	// 線を引く
+	const x = Math.random() * cw;
+	const y = Math.random() * ch;
+	const h = Math.random() * 360;
+	g.setColorHSL(h, .6, 0.5);
+	g.drawLine(0, 0, x, y);
+};
+const main = async () => {
+	for (;;) {
+		c.redraw();
+		await sleep(1000 / 60);
+	}
+};
+main();
+
+</script>
+</body>
+</html>

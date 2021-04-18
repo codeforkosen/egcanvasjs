@@ -1,0 +1,25 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>egcanvas.js demo</title>
+</head>
+<body>
+<script type="module">
+import { createEgCanvas } from "https://js.sabae.cc/egcanvas.js";
+
+const c = createEgCanvas();
+
+c.draw = (g, cw, ch) => { // cw ch は画面の幅高さ、gを使って描画
+	// 線を引く
+	g.setColor(255, 0, 0);
+	g.drawLine(0, 0, cw, ch);
+
+	// 画面中央に文字
+	g.setFontSize(cw / 20);
+	g.setColorHSL(90, .6, 0.5);
+	g.fillTextCenter("hello egcanvas.js", cw / 2, ch / 2);
+};
+// ひとまず最初に描く
+c.redraw();
+
+</script>
+</body>
+</html>
